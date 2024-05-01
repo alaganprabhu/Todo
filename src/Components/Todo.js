@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { API_URL } from "./TodoMiddleware";
 import { Toast } from "primereact/toast";
 import { fetchTodo, postTodo, deleteTodo } from "./TodoMiddleware";
 
 function TodoApp() {
   const toast = useRef(null);
-  const [loading, setLoading] = useState(false);
 
   const [todo, setTodo] = useState([
     // {
@@ -14,9 +12,7 @@ function TodoApp() {
   ]);
   const [newTodo, setnewTodo] = useState("");
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000);
+ 
 
   const fetch = async () => {
     try {
@@ -34,6 +30,7 @@ function TodoApp() {
       };
       const data = await postTodo(payload);
       setTodo([...todo, data]);
+      setnewTodo("");
       showToast("success", "Todo Added Successfully");
     } catch (error) {
       console.error(error);
@@ -48,9 +45,7 @@ function TodoApp() {
       setTodo(data);
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(true);
-    }
+    } 
   };
 
   const handleKey = (e) => {
@@ -91,9 +86,9 @@ function TodoApp() {
             placeholder="What's your plan today?.."
           />
         </div>
-        <button id="but" onClick={post}>
+        {/* <button id="but" onClick={post}>
           <i className="fa fa-plus" />
-        </button>
+  </button>*/}
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {
@@ -105,11 +100,9 @@ function TodoApp() {
                   <li>{todoList.name}</li>
                   {/* <li>{todoList.input}</li> */}
                   <div onClick={() => del(todoList.id)} className="delete">
-                    {loading ? (
-                      <i className="fa fa-spinner fa-spin" />
-                    ) : (
+                    
                       <i className="fa fa-trash-o" />
-                    )}
+                    
                   </div>
                 </div>
               </>

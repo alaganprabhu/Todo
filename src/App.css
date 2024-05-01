@@ -1,5 +1,5 @@
 body {
-  /* background-color: yellow; */
+  background-color: lightblue;
 }
 .input_section {
   display: flex;
@@ -49,6 +49,7 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: capitalize;
   box-shadow: 7px 7px 1px 0px;
+  background-color: lightgrey;
   /* color: antiquewhite; */
 }
 .todoList:hover {

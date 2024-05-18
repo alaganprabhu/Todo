@@ -1,5 +1,10 @@
 body {
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4) ),url("../public/img/wp5162474.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
 .input_section {
   display: flex;
@@ -14,7 +19,9 @@ h1 {
 .inpp {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 15px;
+  /* gap: 2rem; */
 }
 .input {
   width: 470px;
@@ -22,11 +29,12 @@ h1 {
   box-shadow: 3px 4px;
   padding: 15px 10px;
   margin-bottom: 1rem;
+  /* margin-right: 2rem; */
   border-radius: 10px;
   margin-top: 15px;
 }
 .input:focus {
-  outline: 2px solid darkviolet;
+  outline: 2px solid aqua;
   /* border-color: darkviolet; Change border color when focused */
 }
 #but {
@@ -43,17 +51,24 @@ h1 {
   align-items: center;
   justify-content: space-between;
   width: 470px;
-  border: 1px solid black;
+  border: 1px solid aqua;
   padding: 10px 10px;
   margin-top: 30px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
   text-transform: capitalize;
   box-shadow: 7px 7px 1px 0px;
-  background-color: lightgrey;
+  background-color: transparent;
   /* color: antiquewhite; */
 }
+.todoList li {
+  color: aqua;
+}
 .todoList:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  transition: 0.3s;
 }
 ul {
   list-style-type: none;
@@ -61,6 +76,7 @@ ul {
 .delete {
   cursor: pointer;
   font-size: 22px;
+  color: black;
 }
 .delete:hover {
   transform: scale(1.3);

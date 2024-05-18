@@ -11,8 +11,7 @@ function TodoApp() {
     // },
   ]);
   const [newTodo, setnewTodo] = useState("");
-
- 
+  const [loading, setLoading] = useState(false);
 
   const fetch = async () => {
     try {
@@ -24,6 +23,7 @@ function TodoApp() {
   };
 
   const post = async () => {
+    setLoading(true);
     try {
       const payload = {
         name: newTodo,
@@ -34,6 +34,8 @@ function TodoApp() {
       showToast("success", "Todo Added Successfully");
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,7 +47,7 @@ function TodoApp() {
       setTodo(data);
     } catch (error) {
       console.error(error);
-    } 
+    }
   };
 
   const handleKey = (e) => {
@@ -76,16 +78,26 @@ function TodoApp() {
       <Toast ref={toast} />
       <div className="input_section">
         <h1>TO-DO</h1>
-        <div className="inpp">
-          <input
-            type="text"
-            className="input"
-            value={newTodo}
-            onChange={handleChange}
-            onKeyUp={handleKey}
-            placeholder="What's your plan today?.."
-          />
-        </div>
+        {loading ? (
+          <div>
+            <i
+              className="fa fa-spinner fa-spin"
+              style={{ fontSize: "24px", color: "white" }}
+            ></i>{" "}
+          </div>
+        ) : (
+          <div className="inpp">
+            <input
+              type="text"
+              className="input"
+              value={newTodo}
+              onChange={handleChange}
+              onKeyUp={handleKey}
+              placeholder="What's your plan today?.."
+            />
+            {/* {loading && <div><i className="fa fa-spinner fa-spin" style={{fontSize:'24px', color:'white'}}></i> </div> } */}
+          </div>
+        )}
         {/* <button id="but" onClick={post}>
           <i className="fa fa-plus" />
   </button>*/}
@@ -100,9 +112,7 @@ function TodoApp() {
                   <li>{todoList.name}</li>
                   {/* <li>{todoList.input}</li> */}
                   <div onClick={() => del(todoList.id)} className="delete">
-                    
-                      <i className="fa fa-trash-o" />
-                    
+                    <i className="fa fa-trash-o" />
                   </div>
                 </div>
               </>

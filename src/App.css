@@ -1,6 +1,16 @@
-body {
-  /* background-color: lightblue; */
+/* body {
   background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4) ),url("../public/img/wp5162474.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+} */
+* {
+  margin: 0;
+}
+.main {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url("../public/img/wp5162474.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -13,8 +23,17 @@ body {
   align-items: center;
   margin-bottom: 25px;
 }
+.list {
+  display: flex;
+  justify-content: center;
+}
 h1 {
   margin-top: 30px;
+  /* background-image: url('/public/img/9693988_4238568.jpg');
+  background-clip: text;
+  -webkit-text-stroke: 1px  aqua; */
+  color: black;
+  -webkit-text-stroke: 0.6px aqua;
 }
 .inpp {
   display: flex;
@@ -54,7 +73,8 @@ h1 {
   border: 1px solid aqua;
   padding: 10px 10px;
   margin-top: 30px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -76,8 +96,57 @@ ul {
 .delete {
   cursor: pointer;
   font-size: 22px;
-  color: black;
+  color: aqua;
+  transition: 1s;
 }
 .delete:hover {
   transform: scale(1.3);
+  transition: 1s;
+}
+@media screen and (max-width: 450px) {
+  * {
+    margin: 0;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .list {
+    width: 100%;
+  }
+  .sub_list {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    margin-top: 30px;
+    font-size: 45px;
+    color: black;
+    -webkit-text-stroke: 0.6px aqua;
+  }
+
+  .input_section {
+    width: 100%;
+  }
+  .input {
+    width: 100%;
+  }
+  .inpp {
+    width: 70%;
+  }
+  .todoList {
+    width: 80%;
+    font-size: 13px;
+    font-family: cursive;
+    letter-spacing: 0px;
+    word-spacing: -3px;
+    border-radius: 10px;
+  }
+  .todoList li {
+    color: white;
+  }
 }

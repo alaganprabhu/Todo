@@ -74,7 +74,7 @@ function TodoApp() {
   };
 
   return (
-    <>
+    <div className="main">
       <Toast ref={toast} />
       <div className="input_section">
         <h1>TO-DO</h1>
@@ -99,18 +99,19 @@ function TodoApp() {
           </div>
         )}
         {/* <button id="but" onClick={post}>
-          <i className="fa fa-plus" />
+          <i className="fa fa-plus" />ś
   </button>*/}
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div  className="list">
         {
-          <div>
+          <div className="sub_list">
             {/* <ul> */}
             {todo.map((todoList) => (
               <>
                 <div className="todoList">
                   <li>{todoList.name}</li>
                   {/* <li>{todoList.input}</li> */}
+                  
                   <div onClick={() => del(todoList.id)} className="delete">
                     <i className="fa fa-trash-o" />
                   </div>
@@ -121,7 +122,7 @@ function TodoApp() {
           </div>
         }
       </div>
-    </>
+    </div>
   );
 }
 export default TodoApp;

@@ -77,7 +77,7 @@ function TodoApp() {
     <div className="main">
       <Toast ref={toast} />
       <div className="input_section">
-        <h1>TO-DO</h1>
+        <h1>TO-DO APP</h1>
         {loading ? (
           <div>
             <i
